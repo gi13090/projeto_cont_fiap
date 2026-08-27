@@ -8,9 +8,25 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
       home: HomePage()
     );
   } 
+}
+
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
+
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
 }
 
 class HomePage extends StatelessWidget{
@@ -27,8 +43,17 @@ class HomePage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.green,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,//Alinhado no eixo da vertical
+
+
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/images.jpeg"),
+            fit: BoxFit.cover
+          )
+        ),
+        child: Column(
+        //mainAxisAlignment: MainAxisAlignment.center,//Alinhado no eixo da vertical
         children: [
           Text("Pode Entrar!",
               style:
@@ -48,13 +73,29 @@ class HomePage extends StatelessWidget{
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(onPressed: decrement,child:
-                Text("Saiu",
+              TextButton(onPressed: decrement,
+              style: TextButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                fixedSize: Size(150, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)
+                )
+              ),
+              child:
+                Text("Sair, chorando",
                   style:TextStyle(
                   fontSize:16,
                   color: Colors.black
               ))),
-              TextButton(onPressed: increment,child:Text("Entrou",
+              TextButton(onPressed: increment,
+              style: TextButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                fixedSize: Size(100, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)
+                )
+              ),
+              child:Text("É dentro!",
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black
@@ -63,7 +104,8 @@ class HomePage extends StatelessWidget{
             ],
           )
         ],
-      )
+      ),
+      ),
     );
   }
 }
