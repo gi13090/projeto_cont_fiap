@@ -1,3 +1,8 @@
+##Projeto desenvolvido pelo Giovanni Sacristan (RM567548) e Murilo Bertassoli (RM567383)
+Qualquer novidade pode nos chamar no teams professor!
+##
+
+
 # projeto_cont_fiap
 
 A new Flutter project.
